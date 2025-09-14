@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-function Profile({name,email}) {
+function Profile({name,email,setlogin}) {
     const navigate=useNavigate();
     const handlelogout=()=>{
         localStorage.removeItem('name');
         localStorage.removeItem('email');
         localStorage.removeItem('password');
         localStorage.removeItem('token');
+        setlogin(false);
         alert("logged out successfully")
         navigate('/signup');
 

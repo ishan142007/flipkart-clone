@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function SignupPage() {
+export default function SignupPage({setlogin}) {
 	const [form, setForm] = useState({ name: "", email: "", password: "" });
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
@@ -37,9 +37,13 @@ export default function SignupPage() {
 			return;
 		}
 		alert("Signup successful!");
-		// You can add logic to save user data here
+        const token=Math.floor(Math.random()*100);
+        
+        localStorage.setItem('token',token);
+        localStorage.setItem('email',form.email); 
         localStorage.setItem('name',form.name);
-		navigate("/login");
+        setlogin(true);
+		navigate("/");
 	};
 
 	return (

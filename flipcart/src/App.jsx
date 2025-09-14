@@ -47,8 +47,8 @@ function App() {
     <Routes>
       <Route path="/" element={login?<HomePage name={name} Products={sampleProducts}/>:<Navigate to={'/login'}/>}></Route>
       <Route path="/login"element={login?<Navigate to={'/'}/>:<LoginPage setlogin={Setlogin}/>}></Route>
-      <Route path="/Signup" element={<SignupPage/>}></Route>
-      <Route path="/profile" element={<Profile name={name} email={email} />}></Route>
+      <Route path="/Signup" element={<SignupPage setlogin={Setlogin}/>}></Route>
+      <Route path="/profile" element={<Profile name={name} email={email} setlogin={Setlogin}/>}></Route>
       <Route path="/cart" element={<Cart/>}></Route>
       
     </Routes>
