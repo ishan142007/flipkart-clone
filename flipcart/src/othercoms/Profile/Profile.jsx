@@ -1,6 +1,16 @@
 import React from 'react'
-
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 function Profile({name,email}) {
+    const navigate=useNavigate();
+    const handlelogout=()=>{
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+        localStorage.removeItem('token');
+        alert("logged out successfully")
+        navigate('/signup');
+
+    }
   return (
     <section className="max-w-5xl mx-auto mt-12 p-8 bg-white rounded-3xl shadow-2xl">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -27,6 +37,9 @@ function Profile({name,email}) {
         <div className="bg-gray-50 rounded-xl p-6 min-h-[100px] text-gray-500 text-base">
           {/* Orders will be listed here. You can map over an orders array to show order cards. */}
           No orders yet.
+        </div>
+        <div    className = 'tex-xl'>
+        <button className = ' px-5 py-2 rounded-2xl my-5 shadow-md bg-red-400 hover:bg-red-700  ' onClick={handlelogout}>logout</button>
         </div>
       </div>
     </section>
