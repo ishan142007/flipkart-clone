@@ -9,6 +9,8 @@ import { Navigate, Route,Routes } from "react-router-dom";
 import LoginPage from "./components/login/Login";
 import HomePage from "./components/HomePage";
 import SignupPage from "./components/signup/Signup";
+import Profile from "./othercoms/Profile/Profile";
+import Cart from "./othercoms/Cart/Cart";
 
 const sampleProducts = [
   { name: "iPhone 14", price: "69999", image: "https://via.placeholder.com/150" },
@@ -19,6 +21,7 @@ const sampleProducts = [
 function App() {
   const [login,Setlogin]=useState(false);
   const name=localStorage.getItem("name");
+  const email=localStorage.getItem('email');
   // const name='ishan';
   useEffect(()=>{
     const token=localStorage.getItem('token');
@@ -27,6 +30,8 @@ function App() {
       Setlogin(true);
     }
     // localStorage.removeItem('token');
+    // localStorage.removeItem('name');
+
   },[])
   
   return (
@@ -43,6 +48,9 @@ function App() {
       <Route path="/" element={login?<HomePage name={name} Products={sampleProducts}/>:<Navigate to={'/login'}/>}></Route>
       <Route path="/login"element={login?<Navigate to={'/'}/>:<LoginPage setlogin={Setlogin}/>}></Route>
       <Route path="/Signup" element={<SignupPage/>}></Route>
+      <Route path="/profile" element={<Profile name={name} email={email} />}></Route>
+      <Route path="/cart" element={<Cart/>}></Route>
+      
     </Routes>
     </>
   );

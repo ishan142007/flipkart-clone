@@ -38,6 +38,7 @@ export default function SignupPage() {
 		}
 		alert("Signup successful!");
 		// You can add logic to save user data here
+        localStorage.setItem('name',form.name);
 		navigate("/login");
 	};
 

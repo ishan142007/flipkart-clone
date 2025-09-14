@@ -41,7 +41,7 @@ export default function LoginPage({setlogin}) {
     setlogin(true);
     const token=Math.floor(Math.random()*100);
     localStorage.setItem('token',token);
-    localStorage.setItem('name',form.email); 
+    localStorage.setItem('email',form.email); 
     Navigate('/');
 
   };

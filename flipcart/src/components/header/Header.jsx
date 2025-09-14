@@ -1,7 +1,7 @@
 import React from 'react'
 import './file.css'
 import 'remixicon/fonts/remixicon.css'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import LoginPage from '../login/Login'
 
 function Header({name}) {
@@ -21,14 +21,14 @@ function Header({name}) {
           />
         </div>
         <div className="flex items-center gap-2">
-          <button className="bg-white px-4 py-2 rounded flex items-center gap-2 border cursor-pointer border-gray-200 hover:bg-gray-100" onClick={<Navigate to={'/profile'}/>}>
+        <Link to={'/profile'}>  <button className="bg-white px-4 py-2 rounded flex items-center gap-2 border cursor-pointer border-gray-200 hover:bg-gray-100">
             <i className="ri-user-line"></i>
             <span className="hidden sm:inline">{name}</span>
-          </button>
-          <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
+          </button></Link>
+        <Link to={'/cart'} >  <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
             <i className="ri-shopping-cart-line"></i>
             <span className="hidden sm:inline">Cart</span>
-          </div>
+          </div></Link>
           <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
             <i className="ri-store-line"></i>
             <span className="hidden md:inline">Become a Seller</span>
