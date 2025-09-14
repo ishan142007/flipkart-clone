@@ -39,9 +39,9 @@ export default function LoginPage({setlogin}) {
     }
     alert("Login successfull!");
     setlogin(true);
-    const token="kdfjaldks;fjlkdjfdkjldsfjdaskgjh;glkjf";
+    const token=Math.floor(Math.random()*100);
     localStorage.setItem('token',token);
-    localStorage.setItem('name',JSON.stringify(form.email)); 
+    localStorage.setItem('name',form.email); 
     Navigate('/');
 
   };
@@ -100,7 +100,7 @@ export default function LoginPage({setlogin}) {
 
         <p className="mt-6 text-center text-white/80 text-sm">
           Don’t have an account?{" "}
-          <Link to={"#"} className="text-yellow-300 hover:underline">
+          <Link to={"/Signup"} className="text-yellow-300 hover:underline">
             Sign up
           </Link>
         </p>

@@ -8,6 +8,7 @@ import BannerCarousel from "./components/BannerCrousel/Banner";
 import { Navigate, Route,Routes } from "react-router-dom";
 import LoginPage from "./components/login/Login";
 import HomePage from "./components/HomePage";
+import SignupPage from "./components/signup/Signup";
 
 const sampleProducts = [
   { name: "iPhone 14", price: "69999", image: "https://via.placeholder.com/150" },
@@ -17,13 +18,15 @@ const sampleProducts = [
 
 function App() {
   const [login,Setlogin]=useState(false);
-  const name=localStorage.getItem('name');
+  const name=localStorage.getItem("name");
   // const name='ishan';
   useEffect(()=>{
     const token=localStorage.getItem('token');
+    console.log(token);
     if(token){
       Setlogin(true);
     }
+    // localStorage.removeItem('token');
   },[])
   
   return (
@@ -38,8 +41,8 @@ function App() {
 
     <Routes>
       <Route path="/" element={login?<HomePage name={name} Products={sampleProducts}/>:<Navigate to={'/login'}/>}></Route>
-      <Route path="/login"element={<LoginPage setlogin={Setlogin}/>}></Route>
-      
+      <Route path="/login"element={login?<Navigate to={'/'}/>:<LoginPage setlogin={Setlogin}/>}></Route>
+      <Route path="/Signup" element={<SignupPage/>}></Route>
     </Routes>
     </>
   );

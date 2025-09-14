@@ -2,12 +2,12 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-10 pb-4 mt-10">
+    <footer className="bg-gray-900 text-gray-300 pt-10 pb-4 mt-10 select-none">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 border-b border-gray-700 pb-8">
           <div>
             <h3 className="font-bold text-white mb-3 text-sm">ABOUT</h3>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs cursor-pointer">
               <li>Contact Us</li>
               <li>About Us</li>
               <li>Careers</li>
@@ -18,8 +18,8 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-white mb-3 text-sm">HELP</h3>
-            <ul className="space-y-2 text-xs">
+            <h3 className="font-bold text-white mb-3 text-sm  ">HELP</h3>
+            <ul className="space-y-2 text-xs cursor-pointer">
               <li>Payments</li>
               <li>Shipping</li>
               <li>Cancellation & Returns</li>
@@ -28,8 +28,8 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-white mb-3 text-sm">POLICY</h3>
-            <ul className="space-y-2 text-xs">
+            <h3 className="font-bold text-white mb-3 text-sm ">POLICY</h3>
+            <ul className="space-y-2 text-xs cursor-pointer">
               <li>Return Policy</li>
               <li>Terms Of Use</li>
               <li>Security</li>
@@ -39,14 +39,14 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-white mb-3 text-sm">SOCIAL</h3>
-            <ul className="space-y-2 text-xs">
+            <h3 className="font-bold text-white mb-3 text-sm ">SOCIAL</h3>
+            <ul className="space-y-2 text-xs cursor-pointer">
               <li>Facebook</li>
               <li>Twitter</li>
               <li>YouTube</li>
             </ul>
           </div>
-          <div className="col-span-2 md:col-span-2 lg:col-span-1">
+          <div className="col-span-2 md:col-span-2 lg:col-span-1 ">
             <h3 className="font-bold text-white mb-3 text-sm">Mail Us:</h3>
             <p className="text-xs">Flipkart Internet Private Limited,<br />Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br />Outer Ring Road, Devarabeesanahalli Village,<br />Bengaluru, 560103,<br />Karnataka, India</p>
           </div>

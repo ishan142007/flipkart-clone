@@ -8,23 +8,49 @@ function Header({name}) {
   
   
   return (
-    <>
-     <header className="flex items-center bg-white p-3 text-black" >
-      <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" alt="" />
-      {/* <div className="text-2xl font-bold mr-5">Flipkart</div> */}
-      <input
-        type="text"
-        placeholder="Search for products"
-        className="flex-1 px-3 py-2 rounded text-black bg-blue-100 outline-none"/>
-      <button className="bg-white  px-4 py-2 ml-3 rounded" >
-       <i className="ri-user-line"></i>{name}
-      </button>
-
-      <div className="px-4 ml-5"><i className="ri-shopping-cart-line"></i> Cart</div>
-      <div className='ml-5 px-4'><i className="ri-store-line"></i>Become a Seller</div>
-      <div className='ml-5 px-4'><i className="ri-more-2-line"></i></div>
+    <header className="bg-white text-black shadow-md">
+      <div className="max-w-7xl mx-auto flex items-center justify-between p-3">
+        <div className="flex items-center gap-2">
+          <img src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg" alt="Flipkart Logo" className="h-8 w-auto" />
+        </div>
+        <div className="flex-1 mx-4 hidden md:flex">
+          <input
+            type="text"
+            placeholder="Search for products"
+            className="w-full px-3 py-2 rounded text-black bg-blue-100 outline-none"
+          />
+        </div>
+        <div className="flex items-center gap-2">
+          <button className="bg-white px-4 py-2 rounded flex items-center gap-2 border cursor-pointer border-gray-200 hover:bg-gray-100" onClick={<Navigate to={'/profile'}/>}>
+            <i className="ri-user-line"></i>
+            <span className="hidden sm:inline">{name}</span>
+          </button>
+          <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
+            <i className="ri-shopping-cart-line"></i>
+            <span className="hidden sm:inline">Cart</span>
+          </div>
+          <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
+            <i className="ri-store-line"></i>
+            <span className="hidden md:inline">Become a Seller</span>
+          </div>
+          <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
+            <i className="ri-more-2-line"></i>
+          </div>
+        </div>
+        {/* Mobile search icon */}
+        <div className="md:hidden ml-2">
+          <i className="ri-search-line text-xl"></i>
+        </div>
+      </div>
+      {/* Mobile search bar below header */}
+      <div className="md:hidden px-3 pb-2">
+        <input
+          type="text"
+          placeholder="Search for products"
+          className="w-full px-3 py-2 rounded text-black bg-blue-100 outline-none"
+        />
+      </div>
     </header>
-    </>
   )
 }
 

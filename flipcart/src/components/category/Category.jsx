@@ -14,7 +14,7 @@ function Category() {
         <>
        <div className="flex bg-white shadow p-4 justify-around ">
       {categories.map((cat, i) => (
-          <div key={i} className="flex flex-col items-center">
+          <div key={i} className="flex flex-col items-center cursor-pointer">
           <span className="text-2xl"><img src={cat.icon} alt="" className='w-20 h-20' /></span>
           <span>{cat.name}</span>
         </div>

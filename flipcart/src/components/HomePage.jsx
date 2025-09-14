@@ -12,7 +12,7 @@ function HomePage({Products,name}) {
       <BannerCarousel />
       <ProductRow title="Best of Electronics" products={Products} />
       <ProductRow title="Fashion Deals" products={Products} />
-      <ProductRow title="Best of Season"/>
+      <ProductRow title="Best of Season " products={Products}/>
       <Footer/>
     </div>
   )
