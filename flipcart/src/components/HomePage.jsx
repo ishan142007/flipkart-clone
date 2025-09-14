@@ -3,6 +3,7 @@ import ProductRow from './Productrow/Productrow'
 import BannerCarousel from './BannerCrousel/Banner' 
 import Category from './category/Category'
 import Header from './header/Header'      
+import Footer from './footer/Footer'
 function HomePage({Products,name}) {
   return (
     <div>
@@ -12,6 +13,7 @@ function HomePage({Products,name}) {
       <ProductRow title="Best of Electronics" products={Products} />
       <ProductRow title="Fashion Deals" products={Products} />
       <ProductRow title="Best of Season"/>
+      <Footer/>
     </div>
   )
 }
