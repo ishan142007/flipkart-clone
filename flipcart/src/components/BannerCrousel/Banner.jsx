@@ -30,14 +30,14 @@ function BannerCarousel() {
   };
 
   return (
-  <div className="overflow-hidden w-full h-[400px] md:h-[600px] lg:h-[800px] relative bg-white">
+  <div className="overflow-hidden w-full h-[400px] md:h-[600px] lg:h-[800px] relative bg-white ">
       <Slider {...settings}>
         {banners.map((src, i) => (
           <div key={i} className="px-5 h-full flex items-center justify-center">
             <img
               src={src}
               alt="banner"
-              className="w-full h-full object-contain shadow-md"
+              className="w-full h-full object-contain shadow-md rounded-2xl"
             />
           </div>
         ))}

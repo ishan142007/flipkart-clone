@@ -5,11 +5,25 @@ import Category from './category/Category'
 import Header from './header/Header'      
 import Footer from './footer/Footer'
 function HomePage({Products,name}) {
+    const table=[
+      {title:"Best of Electronics",products:{Products}},
+      {title:"Fashion Deals",products:{Products}},
+      {title:"Best of Season",products:{Products}},
+    ]
+
+
   return (
+    
     <div>
         <Header name={name}/>
         <Category />
       <BannerCarousel />
+      {/* {table.map((items,index)=>(
+
+        <ProductRow index={index} title={items.title} products={items.products}/>
+      )
+
+      )} */}
       <ProductRow title="Best of Electronics" products={Products} />
       <ProductRow title="Fashion Deals" products={Products} />
       <ProductRow title="Best of Season " products={Products}/>
