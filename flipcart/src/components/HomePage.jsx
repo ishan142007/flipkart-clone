@@ -9,6 +9,7 @@ function HomePage({Products,name}) {
       {title:"Best of Electronics",products:{Products}},
       {title:"Fashion Deals",products:{Products}},
       {title:"Best of Season",products:{Products}},
+      {title:"Best of Flipkart",products:{Products}}
     ]
 
 
@@ -18,9 +19,9 @@ function HomePage({Products,name}) {
         <Header name={name}/>
         <Category />
       <BannerCarousel />
-      {/* {table.map((items,index)=>(
+      {/* {table.map((items,i)=>(
 
-        <ProductRow index={index} title={items.title} products={items.products}/>
+        <ProductRow index={i} title={items.title} products={items.products}/>
       )
 
       )} */}
