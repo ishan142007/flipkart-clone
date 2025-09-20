@@ -37,14 +37,32 @@ export default function LoginPage({setlogin}) {
       setError("Invalid email format");
       return;
     }
-    alert("Login successfull!");
-    setlogin(true);
-    const token=Math.floor(Math.random()*100);
-    localStorage.setItem('token',token);
-    localStorage.setItem('email',form.email); 
-    Navigate('/');
+    
+    
+      fetch("https://localhost:8000/api/fetchdata")
+      .then(res=> res.json())
+      .then(data=>{
 
-  };
+        const{email,password}=data;
+        if(email==form.email && password==form.password){
+          alert("Login successfull!");
+          setlogin(true);
+        }
+        else{
+          alert("login not found please sign up");
+          Navigate('/Signup');
+        }
+
+      })
+      .catch(error=>console.log(error));
+      
+
+      Navigate('/');
+      
+    }
+ 
+
+ 
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 via-gray-600 to-gray-900">
@@ -59,7 +77,7 @@ export default function LoginPage({setlogin}) {
           Welcome Back 
         </h2>
 
-        <form onSubmit={handleSubmit} ref={formRef} className="space-y-5">
+        <form onSubmit={handleChange} ref={formRef} className="space-y-5">
           <div>
             <label className="block text-white text-sm mb-2">Email</label>
             <input
@@ -99,7 +117,7 @@ export default function LoginPage({setlogin}) {
         </form>
 
         <p className="mt-6 text-center text-white/80 text-sm">
-          Don’t have an account?{" "}
+          Don't have an account?{" "}
           <Link to={"/Signup"} className="text-yellow-300 hover:underline">
             Sign up
           </Link>

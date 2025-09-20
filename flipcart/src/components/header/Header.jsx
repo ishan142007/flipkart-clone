@@ -5,7 +5,9 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import LoginPage from '../login/Login'
 
 function Header({name}) {
-  
+    
+
+
   
   return (
     <header className="bg-white text-black shadow-md">
@@ -33,9 +35,11 @@ function Header({name}) {
             <i className="ri-store-line"></i>
             <span className="hidden md:inline">Become a Seller</span>
           </div>
+         <Link to={'/Admin'}>
           <div className="px-2 sm:px-4 flex items-center gap-1 cursor-pointer hover:text-blue-600">
             <i className="ri-more-2-line"></i>
           </div>
+         </Link>
         </div>
         {/* Mobile search icon */}
         <div className="md:hidden ml-2">

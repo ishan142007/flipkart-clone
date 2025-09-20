@@ -6,7 +6,7 @@ const user = sequelize.define("User",
             type:DataTypes.INTEGER,
             autoIncriment:true,
             primaryKey:true,
-            allowNull:true,
+            allowNull:false,
         },
         name:{
             type:DataTypes.STRING,
@@ -25,8 +25,10 @@ const user = sequelize.define("User",
 
     }
 )
-user.sync({force:false})
-.then(()=>console.log("table created"))
-.catch(()=>console.log("error"))
+user.sync({force:true})
+try{
+    console.log("table created")}
+
+catch(error){console.log("error")}
 module.exports=user
 

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios"
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SignupPage({setlogin}) {
@@ -37,13 +38,18 @@ export default function SignupPage({setlogin}) {
 			return;
 		}
 		alert("Signup successful!");
-        const token=Math.floor(Math.random()*100);
-        
-        localStorage.setItem('token',token);
-        localStorage.setItem('email',form.email); 
-        localStorage.setItem('name',form.name);
-        setlogin(true);
-		navigate("/");
+        const id=Math.floor(Math.random()*100);
+		const{name,email,password}=form;
+        axios.post("http://localhost:8000/api/user/create",{id,name,email,password})
+		.then(()=>{
+			
+			setlogin(true);
+			navigate("/");
+		})
+		.catch(()=>console.log("something went wrong"))
+        // localStorage.setItem('token',token);
+        // localStorage.setItem('email',form.email); 
+        // localStorage.setItem('name',form.name);
 	};
 
 	return (
