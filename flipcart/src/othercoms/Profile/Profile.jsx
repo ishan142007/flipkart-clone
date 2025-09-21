@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 function Profile({name,email,setlogin}) {
@@ -9,6 +10,9 @@ function Profile({name,email,setlogin}) {
         alert("logged out successfully")
         navigate('/signup');
 
+    }
+    const handledelete=async(e)=>{
+          const ans =axios.delete(id)
     }
   return (
     <section className="max-w-5xl mx-auto mt-12 p-8 bg-white rounded-3xl shadow-2xl">
@@ -37,8 +41,10 @@ function Profile({name,email,setlogin}) {
           {/* Orders will be listed here. You can map over an orders array to show order cards. */}
           No orders yet.
         </div>
-        <div    className = 'tex-xl'>
-        <button className = ' px-5 py-2 rounded-2xl my-5 shadow-md bg-red-400 hover:bg-red-700  ' onClick={handlelogout}>logout</button>
+        <div    className = 'tex-xl '>
+        <button className = ' px-5 py-2 rounded-2xl my-5 mr-4 vshadow-md bg-red-400 hover:bg-red-700  ' onClick={handlelogout}>logout</button>
+        <button className = ' px-5 py-2 rounded-2xl my-5 ml-4 shadow-md bg-red-400 hover:bg-red-700  ' onClick={handledelete}>delete account</button>
+       
         </div>
       </div>
     </section>

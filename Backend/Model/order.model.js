@@ -1,6 +1,6 @@
 const sequelize=require('../Config/db.config');
 const {DataTypes}=require('sequelize');
-const student =sequelize.define("Student",{
+const order =sequelize.define("order",{
     id:{
         type:DataTypes.INTEGER ,
         autoIncrement:true,
@@ -8,22 +8,23 @@ const student =sequelize.define("Student",{
         allowNull:false
 
     },
-    name:{
+    Cos_name:{
         type:DataTypes.STRING  ,
         allowNull:true
     },
-    rollno:{
+    Seller_id:{
         type:DataTypes.STRING  ,
         allowNull:false 
     },
-    phoneNo:{
+    Shipped_date:{
         type:DataTypes.INTEGER ,
         allowNull:true
     }
+    
 }
 )
-student.sync({force:false})
+order.sync({force:false})
 .then(()=>console.log("created tabel 2"))
 .catch(()=>console.log("error 2"))
 
-module.exports=student
+module.exports=order

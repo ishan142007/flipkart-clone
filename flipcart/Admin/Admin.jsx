@@ -1,8 +1,30 @@
+import axios from "axios";
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function Admin() {
+
+  
   const [activePage, setActivePage] = useState("Dashboard");
 
+  const [user,setuser]=useState([]);
+
+  useEffect(()=>{
+
+    const dt=async(e)=>{
+      try{
+        
+        const ans=await axios.get("http://localhost:8000/api/fetchdata");
+        setuser(ans.data.data);
+        // console.log(user)
+        
+      }
+      catch(error){
+        
+      }
+    }
+    dt();
+  },[])
   // Dashboard cards for Flipkart-like look
   const dashboardCards = [
     {
@@ -68,18 +90,26 @@ export default function Admin() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td className="p-3">John Doe</td>
-                  <td className="p-3">john@example.com</td>
-                  <td className="p-3">Admin</td>
+                {
+                 
+
+                  (user.length>0)?user.map((user)=>(
+
+                    
+                    <tr key={user.id}>
+                  <td className="p-3">{user.name}</td>
+                  <td className="p-3">{user.email}</td>
+                  <td className="p-3">{user.id}</td>
                   <td className="p-3 text-green-600">Active</td>
                 </tr>
-                <tr>
-                  <td className="p-3">Jane Smith</td>
-                  <td className="p-3">jane@example.com</td>
-                  <td className="p-3">Seller</td>
-                  <td className="p-3 text-yellow-600">Pending</td>
-                </tr>
+                )
+                  ):<tr>
+                        <td colSpan="4" className="text-red-500 text-center">
+                        No users found
+                        </td>
+                  </tr>
+                }
+               
               </tbody>
             </table>
           </div>

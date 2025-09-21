@@ -1,11 +1,11 @@
 const cors = require("cors");
-const student=require("./Model/Student.model")
-const Admin=require("./Model/Admin.model")
-const user= require("./Model/User.model");
+// const student=require("./Model/order.model")
+// const Admin=require("./Model/Admin.model")
+// const user= require("./Model/User.model");
 const express=require('express');
 const sequelize= require('./Config/db.config');
 const mysql = require('mysql');
-const studentrouter=require('./Routes/Students.routes');
+const orderRouter=require('./Routes/order.routes');
 const userRouter=require("./Routes/user.routes");
 const adminRouter=require("./Routes/Admin.routes")
 
@@ -17,7 +17,7 @@ app.use(cors());
 // app.use("/api",userRouter)
 app.use('/api',userRouter)
 app.use('/api',adminRouter)
-app.use('/api',studentrouter)
+app.use('/api',orderRouter)
 
 sequelize.sync({force:false})
 .then(()=>console.log('database sync successfull'))
