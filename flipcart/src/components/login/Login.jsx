@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function LoginPage({setlogin}) {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -27,7 +28,7 @@ export default function LoginPage({setlogin}) {
     setError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (!form.email || !form.password) {
       setError("Please fill in all fields");
@@ -38,23 +39,37 @@ export default function LoginPage({setlogin}) {
       return;
     }
     
+    try{
+
+     const res=await axios.get("http://localhost:8000/api/fetchdata")
+      const ftdata= res.data.data;
+      
+        ftdata.forEach(element => {
+          if(element.email===form.email && element.password===form.password){
+            alert("login successful")
+            setlogin(true);
+          }
+          else{
+            alert ("user not found please sign up ");
+            Navigate("/signup");
+          }
+        });
+        // const email=ftdata.name;
+        // if(email==form.email && password==form.password){
+        //   alert("Login successfull!");
+        //   setlogin(true);
+        // }
+        // else{
+        //   alert("login not found please sign up");
+        //   Navigate('/Signup');
+        // }
+        
+      }
+      catch(error){
+        console.log("no data found",error);
+      }
     
-      fetch("https://localhost:8000/api/fetchdata")
-      .then(res=> res.json())
-      .then(data=>{
 
-        const{email,password}=data;
-        if(email==form.email && password==form.password){
-          alert("Login successfull!");
-          setlogin(true);
-        }
-        else{
-          alert("login not found please sign up");
-          Navigate('/Signup');
-        }
-
-      })
-      .catch(error=>console.log(error));
       
 
       Navigate('/');
@@ -77,7 +92,7 @@ export default function LoginPage({setlogin}) {
           Welcome Back 
         </h2>
 
-        <form onSubmit={handleChange} ref={formRef} className="space-y-5">
+        <form onSubmit={handleSubmit} ref={formRef} className="space-y-5">
           <div>
             <label className="block text-white text-sm mb-2">Email</label>
             <input

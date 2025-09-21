@@ -23,7 +23,7 @@ const fetchdata=async (req,res)=>{
 }
 // const del=async(req,res)=>{
 //     try{
-//         const ans=await.
+//         const ans=await User.destroy()
 //     }
 // }
 module.exports={create,fetchdata}

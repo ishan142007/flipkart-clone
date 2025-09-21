@@ -27,7 +27,7 @@ export default function SignupPage({setlogin}) {
 		setError("");
 	};
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async(e) => {
 		e.preventDefault();
 		if (!form.name || !form.email || !form.password) {
 			setError("Please fill in all fields");
@@ -38,15 +38,19 @@ export default function SignupPage({setlogin}) {
 			return;
 		}
 		alert("Signup successful!");
-        const id=Math.floor(Math.random()*100);
+	
+        // const id=Math.floor(Math.random()*100);
 		const{name,email,password}=form;
-        axios.post("http://localhost:8000/api/user/create",{id,name,email,password})
-		.then(()=>{
+		try{
+
+			const ans=await axios.post("http://localhost:8000/api/user/create",{name,email,password})
 			
-			setlogin(true);
-			navigate("/");
-		})
-		.catch(()=>console.log("something went wrong"))
+				console.log("signup successful")
+				setlogin(true);
+				navigate("/");
+		
+		}
+		catch(error){console.log("something went wrong")}
         // localStorage.setItem('token',token);
         // localStorage.setItem('email',form.email); 
         // localStorage.setItem('name',form.name);

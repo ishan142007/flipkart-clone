@@ -2,9 +2,10 @@ import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 function Profile({name,email,setlogin}) {
     const navigate=useNavigate();
-    const handlelogout=()=>{
+    const handlelogout=async()=>{
         
         setlogin(false);
+
         alert("logged out successfully")
         navigate('/signup');
 
