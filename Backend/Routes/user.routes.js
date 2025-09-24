@@ -1,6 +1,9 @@
 const express =require('express')
-const {create,fetchdata}=require("../Controller/User.controller")
+const auth=require('../Middleware/auth')
+const {create,fetchdata, deletebyid,updatebyid}=require("../Controller/User.controller")
 const routes=express.Router();
 routes.post("/user/create",create);
-routes.get("/fetchdata",fetchdata);
+routes.get("/user/fetchdata",auth,fetchdata);
+routes.delete("/user/delete/:id",deletebyid)
+routes.put("/user/update/:id",updatebyid)
 module.exports=routes

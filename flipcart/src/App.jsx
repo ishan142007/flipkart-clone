@@ -26,6 +26,7 @@ function App() {
   const [user,setuser]=useState([])
   const [email,setemail]=useState('')
   const [name,setname]=useState('')
+  const [id,setid]=useState('')
 
   const [login,Setlogin]=useState(false);
   // const name=localStorage.getItem("name");
@@ -45,6 +46,7 @@ function App() {
           setuser(userdata);
           setname(userdata.name);
           setemail(userdata.email)
+          setid(userdata.id);
           Setlogin(true);
         }
       }
@@ -83,7 +85,7 @@ function App() {
       <Route path="/" element={login?<HomePage name={name} Products={sampleProducts}/>:<Navigate to={'/login'}/>}></Route>
       <Route path="/login"element={login?<Navigate to={'/'}/>:<LoginPage setlogin={Setlogin}/>}></Route>
       <Route path="/Signup" element={<SignupPage setlogin={Setlogin}/>}></Route>
-      <Route path="/profile" element={<Profile name={name} email={email} setlogin={Setlogin}/>}></Route>
+      <Route path="/profile" element={<Profile name={name} email={email} userid={id} setlogin={Setlogin}/>}></Route>
       <Route path="/cart" element={<Cart/>}></Route>
       <Route path="/Admin" element={<Admin />}></Route>
       

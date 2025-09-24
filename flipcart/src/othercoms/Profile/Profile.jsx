@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-function Profile({name,email,setlogin}) {
+function Profile({name,email,setlogin,userid}) {
     const navigate=useNavigate();
     const handlelogout=async()=>{
         
@@ -12,7 +12,14 @@ function Profile({name,email,setlogin}) {
 
     }
     const handledelete=async(e)=>{
-          const ans =axios.delete(id)
+
+      try{
+          const ans =await axios.delete(`http://localhost:8000/api/user/delete${userid}`)
+            console.log("account deleted successfully");
+          }
+        catch(error){
+          console.log("deletion not completed",error)
+        }
     }
   return (
     <section className="max-w-5xl mx-auto mt-12 p-8 bg-white rounded-3xl shadow-2xl">

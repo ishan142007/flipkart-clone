@@ -9,3 +9,9 @@ then 4 folders config ,controller, model ,routes and index.js
     "sequelize": "^6.37.7"
     important files to download
     
+   Rest Api: the api which can be used globally is known as restapi
+    middleware: it is the sytem which separate the inner database from the frontend and backend it is known as middleware.
+    (token generate and check) install -> npm i jsonwebtoken
+    (for access a .env file ) install ->npm i dotenv
+
+define:it is used to define the table 

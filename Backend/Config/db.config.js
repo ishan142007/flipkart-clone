@@ -1,6 +1,7 @@
 const {Sequelize} = require('sequelize');
-const sequelize =new Sequelize("flipcart","root","",{
-    host:'localhost',
+require('dotenv').config();
+const db =new Sequelize(process.env.dbname,process.env.dbusername,process.env.dbpassword,{
+    host:process.env,
     dialect:"mysql",
 });
-module.exports= sequelize
+module.exports= db
